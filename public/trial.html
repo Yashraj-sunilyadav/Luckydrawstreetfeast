@@ -11,67 +11,72 @@
 <!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-
     
     
     <style>
-    body {
-        background: #FCB934;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
-        font-family: sans-serif;
-      
-        position: relative;
-    }
+ /* UNIVERSAL RESPONSIVE LAYOUT — WORKS ON ALL IPHONES & ANDROIDS */
 
+body {
+    background: #FCB934;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Baloo Bhai 2", sans-serif;
+}
+
+/* LOGO — auto-scales perfectly across all devices */
+#Logo {
+    width: 50vw;
+    max-width: 260px;
+    margin-top: 4vw;
+}
+
+/* MAIN RED BOX */
 .red_box {
-    width: 85.86vw;
-    position: absolute;
+    width: 85vw;
+    aspect-ratio: 0.62;    /* Keeps perfect height ratio */
+    background: #BB1D19;
+    border-radius: 23px;
+    margin-top: 3vw;
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .red_box svg {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
- #Logo{
-    width: 57.63%;
-    aspect-ratio: 32/13;
-    position: absolute;
-    left: 7.96%;
-    top: 2.92%;
-       }
-     .prize-fall {
+
+/* WHEEL INSIDE BLOCK */
+#WHEEL {
+    width: 78vw;
+    max-width: 390px;
+}
+
+/* PRIZE ANIMATIONS */
+.prize-fall {
     animation: prizeDrop 0.9s ease-out forwards;
     opacity: 0;
 }
 
 @keyframes prizeDrop {
-    0% {
-        transform: translateY(-150px) scale(0.4);
-        opacity: 0;
-    }
-    60% {
-        transform: translateY(15px) scale(1.15);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-        opacity: 1;
-    }
+    0% { transform: translateY(-150px) scale(0.4); opacity: 0; }
+    60% { transform: translateY(15px) scale(1.15); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* Glow burst behind prize */
 #PRIZE_GLOW {
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 45vw;
+    height: 45vw;
     border-radius: 50%;
     background: radial-gradient(rgba(255,215,0,0.8), rgba(255,165,0,0.1), transparent);
     filter: blur(10px);
@@ -85,7 +90,6 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Background flash */
 .flash-bg {
     animation: flashBg 0.4s ease-out forwards;
 }
@@ -95,191 +99,58 @@
     100% { background-color: transparent; }
 }
 
-
-
-
-@media screen and (width: 360px) and (height: 740px) {
-
-    .red_box {
-        width: 84.6vw;
-    }
-
-    #Logo {
-        width: 61.6%;
-    }
-}
-
-
-@media screen and (max-width: 380px) {
-    #Logo {
-        width: 48.6%;
-    }
-    .red_box {
-        width: 78.6vw;
-    }
-}
-
-/* If height is 667 or smaller */
-@media screen and (max-height: 670px) {
-    #Logo {
-        width: 43.6%;}
-
-     .red_box {
-        width: 77.6vw;
-        padding-bottom: 20px;
-    }
-}
-@media (width: 320px) and (height: 568px) {
-    #Logo { width: 65%; }
-    .red_box { width: 90vw; }
-}
-
-/* ------------------------------------ */
-/* Small Android (360 × 640)            */
-/* ------------------------------------ */
-@media (width: 360px) and (height: 640px) {
-    #Logo { width: 60%; }
-    .red_box { width: 86vw; }
-}
-
-/* ------------------------------------ */
-/* Redmi / Samsung A Series (360 × 720) */
-/* ------------------------------------ */
-@media (width: 360px) and (height: 720px) {
-    #Logo { width: 59%; }
-    .red_box { width: 84vw; }
-}
-
-/* ------------------------------------ */
-/* Your Device (360 × 740)              */
-/* ------------------------------------ */
-@media (width: 360px) and (height: 740px) {
-    #Logo { width: 61.6%; }
-    .red_box { width: 84.6vw; }
-}
-
-/* ------------------------------------ */
-/* iPhone 8 (375 × 667)                 */
-/* ------------------------------------ */
-@media (width: 375px) and (height: 667px) {
-    #Logo { width: 48.6%; }
-    .red_box { width: 78.6vw; }
-}
-
-/* ------------------------------------ */
-/* iPhone X / 11 / 12 mini (375 × 812)  */
-/* ------------------------------------ */
-@media (width: 375px) and (height: 812px) {
-    #Logo { width: 50%; }
-    .red_box { width: 80vw; }
-}
-
-/* ------------------------------------ */
-/* iPhone 12 / 13 / 14 (390 × 844)      */
-/* ------------------------------------ */
-@media (width: 390px) and (height: 844px) {
-    #Logo { width: 48%; }
-    .red_box { width: 78vw; }
-}
-
-/* ------------------------------------ */
-/* Pixel / Samsung S21-S23 (393 × 873)  */
-/* ------------------------------------ */
-@media (width: 393px) and (height: 873px) {
-    #Logo { width: 47%; }
-    .red_box { width: 77vw; }
-}
-
-/* ------------------------------------ */
-/* Samsung S22 Ultra / S23 Ultra        */
-/* (412 × 915)                          */
-/* ------------------------------------ */
-@media (width: 412px) and (height: 915px) {
-    #Logo { width: 45%; }
-    .red_box { width: 75vw; }
-}
-
-/* ------------------------------------ */
-/* iPhone 14 Pro Max (430 × 932)        */
-/* ------------------------------------ */
-@media (width: 430px) and (height: 932px) {
-    #Logo { width: 44%; }
-    .red_box { width: 74vw; }
-}
+/* FOOTER — FULLY RESPONSIVE BASED ON RED BOX WIDTH */
 .footer {
-    margin-top: auto;
-    width: 100%;
-    max-width: 450px;
-    padding: 8px 25px 22px;
-    box-sizing: border-box;
+    width: 85vw;                 /* Matches red box width perfectly */
+    margin-top: 4vw;
+    padding-bottom: 6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-top: 1px solid black;
-    flex-shrink: 0;
 }
-
-
-/* Divider */
-
 
 /* SOCIAL ICONS */
-.social-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  justify-items:center;
-  margin-bottom:2vh;
+.social-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3vw;
 }
 
-.social-row a{
-  width:10vw;
-  height:10vw;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-decoration:none!important;
+.social-row a i,
+.social-row a svg {
+    font-size: 7vw;
+    width: 7vw;
+    height: 7vw;
+    color: black;
 }
 
-.social-row a svg,
-.social-row a i{
-  width:7vw!important;
-  height:7vw!important;
-  font-size:7vw!important;
-  color:black;
+/* FOOTER LINKS (GRID STYLE) */
+.footer-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw 4vw;
+    padding: 0 2vw;
 }
 
-/* FOOTER LINKS */
-.footer-links{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  row-gap:2vh;
-  column-gap:4vw;
+.footer-item {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    font-size: 3.7vw;
+    font-weight: 600;
 }
 
-.footer-item{
-  display:flex;
-  align-items:center;
-  gap:2vw;
-  font-size:3.5vw;
+.footer-item i {
+    font-size: 4vw;
 }
 
-.footer-item i{
-  font-size:4vw;
+.footer-item a {
+    color: black;
+    text-decoration: none;
 }
-
-.footer-item a{
-  color:black;
-  text-decoration:none;
-  font-weight:600;
-}
-/* Blinking animation for View Location */
-.blink {
-    animation: blinkAnim 1s infinite;
-}
-
-@keyframes blinkAnim {
-    0% { color: black; }
-    50% { color: gray; }   /* highlight color */
-    100% { color: black; }
-}
-
 
     </style>
 
@@ -444,8 +315,8 @@
         <div class="footer-links">
 
            <div class="footer-item">
-                <i  class="fa-solid fa-location-dot"></i>
-                <a  id="viewLocationLink" href="https://maps.app.goo.gl/G2kRkUXaoxqdU4yJ6" target="_blank">View Location</a>
+                <i class="fa-solid fa-location-dot"></i>
+                <a href="https://maps.app.goo.gl/G2kRkUXaoxqdU4yJ6" target="_blank">View Location</a>
             </div>
 
             <div class="footer-item">
@@ -457,20 +328,6 @@
  
   <script>  
 
-function onSpinComplete() {
-
-    // 1. Scroll to footer automatically
-    document.querySelector(".footer").scrollIntoView({
-        behavior: "smooth"
-    });
-
-    // 2. Add blinking effect to View Location link
-    const locationLink = document.getElementById("viewLocationLink");
-
-    setTimeout(() => {
-        locationLink.classList.add("blink");
-    }, 800); // small delay after scroll
-}
 
  const winSound = new Audio("./Sound.mp3");
 
@@ -524,7 +381,6 @@ localStorage.setItem("savedPrize", chosen);
 
         // CONFETTI celebration
         launchConfetti();
-          onSpinComplete();  
     }, 4000);  // 4000 ms = 4 seconds
 
 
